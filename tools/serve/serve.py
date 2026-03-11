@@ -357,9 +357,9 @@ class Test262WindowTestHandler(HtmlWrapperHandler):
 <script src="/resources/test262/test262-provider.js"></script>
 %(meta)s
 %(script)s"""
-    wrapper = pre_wrapper + """<script>test262Setup()</script>
+    wrapper = pre_wrapper + """<body><script>test262Setup()</script>
 <script src="%(path)s"></script>
-<script>test262Done()</script>"""
+<script>test262Done()</script></body>"""
 
     def _get_metadata(self, request):
         path = self._get_filesystem_path(request)
@@ -383,11 +383,11 @@ class Test262WindowModuleHandler(Test262WindowHandler):
 
 class Test262WindowModuleTestHandler(Test262WindowTestHandler):
     path_replace = [(".test262-module-test.html", ".js")]
-    wrapper = Test262WindowTestHandler.pre_wrapper + """<script type="module">
+    wrapper = Test262WindowTestHandler.pre_wrapper + """<body><script type="module">
   test262Setup();
   import {} from "%(path)s";
   test262Done();
-</script>"""
+</script></body>"""
 
 
 class Test262StrictWindowHandler(Test262WindowHandler):
