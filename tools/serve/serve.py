@@ -351,10 +351,10 @@ class Test262WindowTestHandler(HtmlWrapperHandler):
     pre_wrapper = """<!doctype html>
 <meta charset=utf-8>
 <title>Test</title>
-<script src="/resources/test262/testharness-client.js"></script>
+<script src="/resources/test262/test262-reporter.js"></script>
 <script src="/third_party/test262/harness/assert.js"></script>
 <script src="/third_party/test262/harness/sta.js"></script>
-<script src="/resources/test262/harness-adapter.js"></script>
+<script src="/resources/test262/test262-provider.js"></script>
 %(meta)s
 %(script)s"""
     wrapper = pre_wrapper + """<script>test262Setup()</script>
